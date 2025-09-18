@@ -12,7 +12,7 @@ roi_x2 = roi_x1 + roi_width
 roi_center = ((roi_x1 + roi_x2)//2, H//2)
 
 # Load YOLOv5 Nano
-model = YOLO("yolov5n.pt")  # pretrained COCO model (includes "person")
+model = YOLO("yolov5nu.pt")  # pretrained COCO model (includes "person")
 
 # Tracker setup
 tracker = None
@@ -60,7 +60,7 @@ while True:
             cv2.line(frame, roi_center, person_center, (255,255,255))
             error_x = person_center[0] - roi_center[0]
             error_y = person_center[1] - roi_center[1]
-            print("Error:", (error_x, error_y))
+            print("Error:", (error_x))
 
     # Draw ROI
     cv2.rectangle(frame, (roi_x1, 0), (roi_x2, H), (255,0,0), 2)
